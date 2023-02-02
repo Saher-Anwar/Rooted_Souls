@@ -9,7 +9,11 @@ public class CameraTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            Debug.Log("Loading next level");
             GameManager.instance.LoadNextLevel();
+
+            Debug.Log("Destroying this trigger..");
+            Destroy(this.gameObject);
         }
     }
 }
