@@ -12,8 +12,8 @@ public class CameraTrigger : MonoBehaviour
             Debug.Log("Loading next level");
             GameManager.instance.LoadNextLevel();
 
-            Debug.Log("Destroying this trigger..");
-            Destroy(this.gameObject);
+            Debug.Log("Disabling this trigger..");
+            gameObject.SetActive(false);
         }
     }
 }

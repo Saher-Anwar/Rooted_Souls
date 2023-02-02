@@ -6,8 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     [SerializeField]
+    List<LevelManager> levelManagers = new List<LevelManager>();
+
     List<CinemachineVirtualCamera> levelCameras = new List<CinemachineVirtualCamera>();
     int currLevel = 0;
 
@@ -21,6 +22,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        foreach (LevelManager levelManager in levelManagers)
+        {
+            levelCameras.Add(levelManager.getLevelCamera());
         }
     }
 
