@@ -38,9 +38,9 @@ public class SpikyBlob : EnemyAI, IBlob
         playerRb.AddForce(knockbackDir.normalized * knockbackForce, ForceMode2D.Impulse);
     }
 
-    public void Death()
+    public void Death(float deathWaitTime = 0)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, deathWaitTime);
     }
 
     public void TakeDamage(float damage)
@@ -56,6 +56,8 @@ public class SpikyBlob : EnemyAI, IBlob
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, playerDetectionRadius);
+        Gizmos.DrawWireSphere(transform.position + offset, playerDetectionRadius);
     }
+
+
 }

@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IBlob
 {
     void Attack();
-    void Death();
+    void Death(float deathWaitTime);
     void TakeDamage(float damage);
 }

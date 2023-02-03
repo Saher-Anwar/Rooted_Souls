@@ -12,17 +12,26 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     float maxHealth;
     [SerializeField]
+    LayerMask playerLayer;
+
+    [Header("Player detection")]
+    [SerializeField]
     protected float playerDetectionRadius;
     [SerializeField]
-    LayerMask playerLayer;
+    protected Vector3 offset;
 
     protected float currHealth;
     protected Transform playerPos;
+
+    private void Start()
+    {
+        FindPlayerPos();
+    }
 
     protected void FindPlayerPos()
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    protected bool CheckForPlayer => Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
+    protected bool CheckForPlayer => Physics2D.OverlapCircle(transform.position + offset, playerDetectionRadius, playerLayer);
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyBlobMovement : MonoBehaviour
 {
-    [SerializeField]
     new Rigidbody2D rigidbody;
     [SerializeField]
     Transform groundCheck;
