@@ -36,7 +36,6 @@ public class ExplodingBlob : EnemyAI, IBlob
     {
         StartCoroutine(TriggerExplosion());
         // Do damage to player
-        // Death(deathWaitTime);
     }
 
     IEnumerator TriggerExplosion()
@@ -47,7 +46,15 @@ public class ExplodingBlob : EnemyAI, IBlob
         yield return new WaitForSeconds(deathWaitTime);
         DisableUnnecessaryComponents();
 
-        Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        if(explosionVFX != null)
+        {
+            Debug.Log($"{explosionVFX.GetType()}");
+            Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("No explosion VFX allocated");
+        }
 
         ApplyExplosionKnockback();
 
