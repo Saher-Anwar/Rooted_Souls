@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ExplodingBlob : EnemyAI, IBlob
 {
+    [Header("Explosion information")]
+    [SerializeField]
+    GameObject explosionVFX;
     [SerializeField]
     float knockbackForce = 2f;
     [SerializeField]
@@ -31,25 +34,30 @@ public class ExplodingBlob : EnemyAI, IBlob
 
     public void Attack()
     {
-        TriggerExplosion();
+        StartCoroutine(TriggerExplosion());
         // Do damage to player
-        Death(deathWaitTime);
+        // Death(deathWaitTime);
     }
 
     IEnumerator TriggerExplosion()
     {
         // stop enemy movement
         GetComponent<EnemyBlobMovement>().enabled = false;
-        yield return new WaitForSeconds(deathWaitTime);
         
-        if (CheckForPlayer)
-        {
-            ApplyExplosionKnockback();
-        }
+        yield return new WaitForSeconds(deathWaitTime);
+        DisableUnnecessaryComponents();
+
+        Instantiate(explosionVFX, transform.position, Quaternion.identity);
+
+        ApplyExplosionKnockback();
+
+        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration);
+        Death();
     }
 
     void ApplyExplosionKnockback()
     {
+        if (!CheckForPlayer) return;
         Vector2 knockbackDir = (playerPos.position - transform.position).normalized;
         Rigidbody2D rigidbody2D = playerPos.gameObject.GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
@@ -74,5 +82,11 @@ public class ExplodingBlob : EnemyAI, IBlob
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + offset, playerDetectionRadius);
+    }
+
+    void DisableUnnecessaryComponents()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }

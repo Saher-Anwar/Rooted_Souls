@@ -1087,8 +1087,8 @@ MonoBehaviour:
     m_Bits: 64
   jumpForce: 4
   moveForce: 2
-  jumpReloadTimeInSec: 2
-  fallingGravityScale: 0.5
+  jumpReloadTimeInSec: 0.5
+  fallingGravityScale: 2
 --- !u!61 &1955968771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1208,6 +1208,7 @@ MonoBehaviour:
     m_Bits: 256
   playerDetectionRadius: 0.8
   offset: {x: 0.05, y: -0.09, z: 0}
+  explosionVFX: {fileID: 8028333279216171569, guid: 906e9f0bc624b404ab7da1cfa18f69dc, type: 3}
   knockbackForce: 2
   deathWaitTime: 1
 --- !u!1001 &1967184767
