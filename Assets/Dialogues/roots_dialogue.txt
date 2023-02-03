@@ -1,0 +1,206 @@
+The Root of Heart
+
+Opening
+
+Background:
+
+A. Black
+B. Black + Hypnotic animation / image
+
+Character:
+
+M: Main character
+
+Background A
+
+M: Finally, it's time to say goodbye.
+
+M: Goodbye to the person no one cares about enough to miss. The one who cannot do anything right, the coward that runs away from everything, the disgusting and weak me.
+
+M; I hate myself... I hate me...
+
+Background B...
+
+M:Goodbye...
+
+
+Surface round 1
+
+Background A: Pink sky + surface
+
+Character:  
+M: Main character
+
+L: Love npc
+
+L1: kind
+M1: sad
+
+M: Could this be heaven? But I’m not even a good person... I’ve only ever been a nuisance to others. 
+
+
+[.....]
+
+M: Anyway, I made it. I didn’t even feel any pain... Heaven?
+
+[.....]
+M: Who am I fooling? It’s not possible for a failure like me to deserve a place in heaven. 
+
+M: I should explore before jumping to such conclusions. 
+
+Move forward]
+
+M interacts with L
+
+L: Hey, you look lost, where are you going?
+M: I don't know, what is this place? Who are you?
+L: It doesn't matter, I am nothing. like a dandelion blown by the wind, wobbling away from its roots, losing its way, not knowing where to go.
+M: I don't understand.
+L: It doesn't matter, I am looking for a seed, I have searched all over, but I can't find it.
+M: ... So you want me to help you?
+L: I believe in you.
+M: ... You should ask someone else, believing in me is a mistake. I.. I can’t do anything right, not even finding a seed. 
+L: I believe in you because I don't have anyone else.
+M: ... I’ll try, but don’t say I didn’t warn you. I will fail, as always.  
+M: I don’t even know where to go...
+L: Just go forward, go forward. I have a feeling that what I'm looking for is just ahead.
+M: ...
+
+[Player move forward
+
+M interact with item " broken sword"
+
+M: This doesn't look like a seed, seems like just a broken sword.
+M: It reminds me of the small shovel I’d use to dig in the sandbox as a kid. Eventually as I do with everything, I broke it... I could never keep anything nice. 
+M: I better keep going... 
+
+【player drop in trap】( camera shaking) 
+
+Root up ( dark )
+
+M: ??!!!???
+M: It's dark! Was this a trap!?
+M: I should have known better than to trust a stranger... I'm so stupid! How can I be so dumb!? 
+
+【player interact with breakable block】 use sound effect and UI to guide player 
+
+M : Every time I approach here, there's a noise...
+M : Climbing up is almost impossible, maybe the tunnel can get me out... I should try digging down. (Sign UI shows up)
+
+Fear layer ( camera shake)
+
+M: Another trap...?  
+M: It's so dark everywhere... mom. M: It's so dark everywhere... mom...I'm scared.
+
+I'm scared. [Interact with Fear npc]
+
+F: Mom, I'm scared. 
+F: It's dark. It's dark. It's dark. It's dark. It's dark. It's dark. it's dark. (UI Shaking)
+F: I'm going to die! I'm so scared, please help me.
+
+M: Who are you?
+F: I’m so afraid... please help me... I’m so afraid. 
+M: ...
+M: Seems like it can’t communicate... 
+
+[Fear turns to sprite with loud sound effect]
+
+F: There's no safe place... My peace will never come... I’m going to die.
+M: No! Follow me!
+F: I'm scared.
+M: I'm scared too...
+[Room change to anger]
+
+M: Huh...?
+
+[Interact with anger NPC]
+
+A: Finally, you’re here! 
+A: Because of YOU, I'm going to live forever trapped in the fire of rage. I'll never be able to find peace. (mad animation)
+A: ALL BECAUSE OF YOU
+A: You stupid bastard, I hate you.
+M: I don't understand. Who are you?
+A: You’re an idiot!!! Can’t understand anything, you keep pissing me off I’m so fucking ANGRY!  
+M: ... Unable to communicate
+
+M: ... can't communicate
+
+A: I hate you so much! I'm so angry because of you.
+A: You're a worthless piece of shit, you’re going to hell.
+A: I hate you. 
+
+M: ... 
+
+[dig down sign]
+
+ [digging]
+
+F: I don't want to stay here, it's scary...
+A: You stupid thing, can't even do such a simple thing as digging up dirt. Go die! Die! Die! Die!
+
+Sad layer
+
+M: Whatever this place is, I've had enough of it.
+
+Interact with sad npc
+
+M: I don't want to ask stupid questions like "who are you" anymore...
+S: It hurts! It hurts so much... 
+S: The pain is so sharp... it feels as if my heart is tearing apart, and there was no way to stop my tears. 
+S: (sob)
+
+[sad turns to sprite]
+
+S: Tears don’t solve the problem but I just can’t stop... I feel so sad...
+
+M: .... Please, do something.
+
+A: You're useless.
+F: RUN AWAY!
+
+ Interact with hopeless npc 】 【 Interact with hopeless npc 】
+
+M: ... 
+HL: Hey, Welcome.
+M: Hi!
+Could you tell me where I am?
+HL: Welcome to...
+
+[Hopeless broke to monsters]
+
+HL: The root of your soul.
+HL: Enjoy the taste of despair. You're a coward, you'll never be able to defeat me.
+
+M: Who are you?
+HL: I'm hopeless. as you can see.
+
+Hopeless turns to a sprites
+
+[Player fight with monsters but could never win]
+
+A: Why are you just standing around dumbass!? Swing the hilt of your sword! You just continue to disappoint me! You cowardly bitch! ( start fight)
+F: You can never beat it, we all know that. Cry and wait for death to come. There’s no use struggling in vain. ( HP a half left)
+S: sob so painful, please kill me... I don't want to cry anymore. ( HP almost 0)
+
+
+ 【hope sprite shows up and UI guide player go down
+
+M: I can't take this anymore.
+M: I don't understand why this is happening? What are these ghostly orbs?
+M: I just wanted to help find the seed... is that so wrong? I’m stupid for ever thinking I could do it, of course this happened. I can’t do anything right! 
+M: I give up, I just want to go home...
+
+H: I'm sorry to hear that, it seems desperation has really driven you to the edge, little one.
+H: I know you're in a lot of pain and confusion. 
+H: But you must know that underneath the despair there is always hope.
+M: Who are you?
+M: (I think I know the answer...)
+
+H: I am hope. 
+
+【sword level up animation
+
+H: This is a gift for you, my child. Keep climbing up and don't look behind, you will find your way back.
+M: ... 
+H: I believe in you.
+
