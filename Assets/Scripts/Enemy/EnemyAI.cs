@@ -1,37 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField, OptionalField]
+    ParticleSystem hitEffect;
+    [SerializeField, OptionalField]
+    ParticleSystem deathEffect;
     [SerializeField]
     float maxHealth;
+    [SerializeField]
+    protected float playerDetectionRadius;
+    [SerializeField]
+    LayerMask playerLayer;
 
-    float currHealth;
+    protected float currHealth;
+    protected Transform playerPos;
 
-    // Start is called before the first frame update
-    void Start()
+    protected void FindPlayerPos()
     {
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void TakeDamage(float damage)
-    {
-        currHealth -= damage;
-
-        if(currHealth <= 0)
-        {
-            Death();
-        }
-    }
-
-    public void Death()
-    {
-        Destroy(gameObject);
-    }
+    protected bool CheckForPlayer => Physics2D.OverlapCircle(transform.position, playerDetectionRadius, playerLayer);
 }
