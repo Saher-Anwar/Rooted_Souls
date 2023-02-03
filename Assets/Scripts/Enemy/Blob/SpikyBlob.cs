@@ -58,6 +58,4 @@ public class SpikyBlob : EnemyAI, IBlob
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + offset, playerDetectionRadius);
     }
-
-
 }
