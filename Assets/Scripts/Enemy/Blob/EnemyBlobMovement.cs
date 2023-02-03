@@ -68,11 +68,13 @@ public class EnemyBlobMovement : MonoBehaviour
         if(relativePos.x < 0)
         {
             // move to the right
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             return Vector2.right;
         }
         else
         {
             // move to the left
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             return Vector2.left;
         }
     }
