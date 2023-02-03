@@ -34,32 +34,32 @@ public class ExplodingBlob : EnemyAI, IBlob
 
     public void Attack()
     {
-        StartCoroutine(TriggerExplosion());
-        // Do damage to player
+        StartCoroutine(StartAttack());
+
+    }
+
+    IEnumerator StartAttack()
+    {
+        DisableMovement();
+        yield return StartCoroutine(TriggerExplosion());
+        Death();
     }
 
     IEnumerator TriggerExplosion()
-    {
-        // stop enemy movement
-        GetComponent<EnemyBlobMovement>().enabled = false;
-        
-        yield return new WaitForSeconds(deathWaitTime);
+    {        
+        if (explosionVFX == null)
+        {
+            Debug.LogError("No explosion VFX allocated");
+            yield return null;
+        }
+
+        Instantiate(explosionVFX, transform.position, Quaternion.identity, transform);
+        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration * 0.2f);
+
         DisableUnnecessaryComponents();
-
-        if(explosionVFX != null)
-        {
-            Debug.Log($"{explosionVFX.GetType()}");
-            Instantiate(explosionVFX, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.Log("No explosion VFX allocated");
-        }
-
         ApplyExplosionKnockback();
 
-        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration);
-        Death();
+        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration * 0.5f);
     }
 
     void ApplyExplosionKnockback()
@@ -68,6 +68,8 @@ public class ExplodingBlob : EnemyAI, IBlob
         Vector2 knockbackDir = (playerPos.position - transform.position).normalized;
         Rigidbody2D rigidbody2D = playerPos.gameObject.GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+
+        // Do damage
     }
 
     public void Death(float deathWaitTime = 0)
@@ -93,7 +95,11 @@ public class ExplodingBlob : EnemyAI, IBlob
 
     void DisableUnnecessaryComponents()
     {
-        GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void DisableMovement()
+    {
+        GetComponent<EnemyBlobMovement>().enabled = false;
     }
 }
