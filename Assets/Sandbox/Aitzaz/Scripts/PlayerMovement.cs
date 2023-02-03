@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Fetching the horizontal input magnitude
         moveDirection = Input.GetAxis("Horizontal");
-        changeDirection();
-
+        
         // Jump Component
         // Allow jump if grounded and add force equal to jumpForce
         if (Input.GetButtonDown("Jump") && isGrounded())
@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, rigidBody2D.velocity.y * jumpFloat);
         }
+        
+        changeDirection();
     }
 
     void FixedUpdate()
@@ -43,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
         rigidBody2D.velocity = new Vector2(moveDirection * moveSpeed, rigidBody2D.velocity.y);
     }
 
+    private bool isGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+    }
+    
     // Method to change direction when face and move direction are not same
     private void changeDirection()
     {
@@ -53,11 +60,6 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
     }
 
     void OnDrawGizmosSelected()
