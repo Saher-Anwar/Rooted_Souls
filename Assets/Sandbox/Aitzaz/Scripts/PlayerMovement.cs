@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    
     // Initializing required variables
-    private float moveDirection;
-    private float moveSpeed = 5f;
-    private float jumpForce = 10f;
-    private float checkRadius = 0.5f;
+    public float moveDirection;
+    public float moveSpeed = 7f;
+    public float jumpForce = 15f;
+    public float jumpFloat = 1f;
+    public float checkRadius = 0.5f;
     // True meaning right, false meaning left
-    private bool faceDirection = true;
-    private float jumpFloat = 0.5f;
+    public bool faceDirection = true;
+    
 
     [SerializeField] private Rigidbody2D rigidBody2D;
     [SerializeField] private Transform groundCheck;
@@ -58,5 +59,12 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
     }
-    
+
+    void OnDrawGizmosSelected()
+    {
+        // Display the ground checking radius when selected
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
+    }
+
 }
