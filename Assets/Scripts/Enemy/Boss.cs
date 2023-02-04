@@ -35,7 +35,21 @@ namespace Enemy
         [Space]
         [Header("Blobs spawn settings")]
         [SerializeField]
+        private Vector2 blobSpawnOffset = new Vector2(0.0f, 2.0f);
+        [SerializeField]
         private float minTimeBetweenBlobs = 2.0f;
+        [SerializeField]
+        private float minThrowDistance = 5.0f;
+        [SerializeField]
+        private float maxThrowDistance = 10.0f;
+        [SerializeField]
+        private float minThrowAngle = 30.0f;
+        [SerializeField]
+        private float maxThrowAngle = 60.0f;
+
+        [Space]
+        [Header("Player")]
+        private GameObject player;
 
         private float bossAliveTime = 0.0f;
         private float nextSpawnTime = 0.0f;
@@ -79,6 +93,14 @@ namespace Enemy
         // Use this for initialization
         void Start()
         {
+            // Get player
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                Debug.LogError("Player not found");
+            }
+            maxThrowDistance = (player.transform.position.x - transform.position.x) / 2;
+            minThrowDistance = maxThrowDistance / 2;
             nextSpawnTime = minTimeBetweenBlobs;
         }
 
@@ -102,15 +124,21 @@ namespace Enemy
             {
                 return;
             }
-            Vector3 spawnPos = transform.position;
-            spawnPos.x += Random.Range(-sapwnRange, sapwnRange);
+            Vector2 targetPos = new(transform.position.x, transform.position.y);
+            targetPos.x += Random.Range(minThrowDistance, maxThrowDistance);
+
+            Vector2 startPos = new Vector2(transform.position.x, transform.position.y) + blobSpawnOffset;
 
             // generate random blob
             int blobIndex = Random.Range(0, blobPrefabs.Length);
-            var blobGO = Instantiate(blobPrefabs[blobIndex], spawnPos, Quaternion.identity);
+            var blobGO = Instantiate(blobPrefabs[blobIndex], startPos, Quaternion.identity);
+
+            float angle = Random.Range(minThrowAngle, maxThrowAngle);
+
+            Vector2 speed = CalculateVelocity2D(startPos, targetPos, angle);
+            blobGO.GetComponent<Rigidbody2D>().velocity = speed;
 
             Blob blob = blobGO.GetComponent<Blob>();
-
             if (bindToBoss)
             {
                 // bind blob to boss
@@ -133,7 +161,7 @@ namespace Enemy
                     HP = 1;
                     return;
                 }
-                
+
                 isAlive = false;
                 // kill all blobs
                 foreach (var blob in blobs)
@@ -170,6 +198,31 @@ namespace Enemy
             }
             blobs.Remove(blob);
             CalcNextSpawnTime();
+        }
+
+        // calculate initial velocity to reach target
+        private Vector2 CalculateVelocity2D(Vector2 start, Vector2 target, float angle)
+        {
+            // define gravity
+            float gravity = Physics2D.gravity.magnitude;
+
+            // define distance
+            Vector2 distance = target - start;
+            float distanceX = distance.x;
+            float distanceY = distance.y;
+
+            // define angle
+            float angleRad = angle * Mathf.Deg2Rad;
+
+            // calculate initial velocity
+            float velocity = Mathf.Sqrt(distanceX * distanceX + distanceY * distanceY) / (Mathf.Sin(2 * angleRad) / gravity);
+
+            // calculate velocity components
+            float velocityX = Mathf.Sqrt(velocity) * Mathf.Cos(angleRad);
+            float velocityY = Mathf.Sqrt(velocity) * Mathf.Sin(angleRad);
+
+            // create and return velocity vector
+            return new Vector2(velocityX, velocityY);
         }
     }
 }

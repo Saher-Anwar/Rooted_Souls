@@ -131,7 +131,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &1181695121
@@ -152,6 +152,8 @@ MonoBehaviour:
   blobsToSpawnWhenBossDies: 5
   HP: 2
   isBossDefeatable: 1
+  isAlive: 1
+  spawnBlobs: 1
   sapwnRange: 10
   blobPrefabs:
   - {fileID: 2065327486463633039, guid: 7d997f0a939fc664a83e4a2e7f9dec98, type: 3}
