@@ -12,6 +12,11 @@ namespace Enemy
         [SerializeField]
         private int HP = 10;
 
+        private void OnDisable()
+        {
+            OnBlobDefeated.RemoveAllListeners();
+        }
+        
         // Use this for initialization
         void Start()
         {

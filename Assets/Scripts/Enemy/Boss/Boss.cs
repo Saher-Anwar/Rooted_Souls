@@ -19,12 +19,22 @@ namespace Enemy
         [SerializeField]
         private bool isAlive = true;
 
+        [SerializeField]
+        private bool isTriggered = false;
+        public void SetBossTriggered(bool value)
+        {
+            isTriggered = value;
+        }
+
+        public bool GetBossTriggered()
+        {
+            return isTriggered;
+        }
+
         [Space]
         [Header("Blobs settings")]
         [SerializeField]
         private bool spawnBlobs = true;
-        [SerializeField]
-        private float sapwnRange = 5.0f;
         [SerializeField]
         private GameObject[] blobPrefabs;
         [SerializeField]
@@ -89,6 +99,10 @@ namespace Enemy
 #endif
             }
         }
+        private void OnDisable()
+        {
+            OnBossDefeated.RemoveAllListeners();
+        }
 
         // Use this for initialization
         void Start()
@@ -107,6 +121,11 @@ namespace Enemy
         // Update is called once per frame
         void Update()
         {
+            if (!isTriggered)
+            {
+                return;
+            }
+
             bossAliveTime += Time.deltaTime;
             if (bossAliveTime >= nextSpawnTime)
             {
@@ -116,6 +135,7 @@ namespace Enemy
                 }
                 CalcNextSpawnTime();
             }
+
         }
 
         private void SpawnBlob(bool bindToBoss)
@@ -131,7 +151,7 @@ namespace Enemy
 
             // generate random blob
             int blobIndex = Random.Range(0, blobPrefabs.Length);
-            var blobGO = Instantiate(blobPrefabs[blobIndex], startPos, Quaternion.identity);
+            var blobGO = Instantiate(blobPrefabs[blobIndex], startPos, Quaternion.identity, transform.parent);
 
             float angle = Random.Range(minThrowAngle, maxThrowAngle);
 
@@ -145,6 +165,7 @@ namespace Enemy
                 blob.OnBlobDefeated.AddListener(() => RemoveBlob(blob));
                 // add blob to blobs
                 blobs.Add(blob);
+                blobGO.name = "Blob " + blobs.Count;
             }
 
         }
@@ -178,6 +199,11 @@ namespace Enemy
                 OnBossDefeated?.Invoke();
                 Destroy(gameObject);
             }
+        }
+
+        public bool SetBossDefeatable()
+        {
+            return isBossDefeatable;
         }
 
         public void SetBossDefeatable(bool isDefeatable)
