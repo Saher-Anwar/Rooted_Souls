@@ -36,11 +36,11 @@ namespace Enemy
         [SerializeField]
         private bool spawnBlobs = true;
         [SerializeField]
-        private GameObject[] blobPrefabs;
+        private List<EnemyAI> differentTypesOfEnemies = new List<EnemyAI>();
         [SerializeField]
         private int maxBlobsToSpawn = 5;
-
-        private List<Blob> blobs = new List<Blob>();
+        
+        private List<IBlob> blobs = new();
 
         [Space]
         [Header("Blobs spawn settings")]
@@ -73,7 +73,7 @@ namespace Enemy
         private bool BossCompletenessCheck()
         {
             // check blobs
-            if (blobPrefabs.Length <= 0)
+            if (differentTypesOfEnemies.Count <= 0)
             {
                 Debug.LogError("Blob prefabs is empty");
                 return false;
@@ -150,19 +150,23 @@ namespace Enemy
             Vector2 startPos = new Vector2(transform.position.x, transform.position.y) + blobSpawnOffset;
 
             // generate random blob
-            int blobIndex = Random.Range(0, blobPrefabs.Length);
-            var blobGO = Instantiate(blobPrefabs[blobIndex], startPos, Quaternion.identity, transform.parent);
+            int blobIndex = Random.Range(0, differentTypesOfEnemies.Count);
+            EnemyAI randomEnemy = differentTypesOfEnemies[blobIndex];
+            
+            var blobGO = Instantiate(randomEnemy, transform.position, Quaternion.identity);
+
 
             float angle = Random.Range(minThrowAngle, maxThrowAngle);
 
             Vector2 speed = CalculateVelocity2D(startPos, targetPos, angle);
             blobGO.GetComponent<Rigidbody2D>().velocity = speed;
 
-            Blob blob = blobGO.GetComponent<Blob>();
+            IBlob blob = blobGO.GetComponent<IBlob>();
             if (bindToBoss)
             {
                 // bind blob to boss
-                blob.OnBlobDefeated.AddListener(() => RemoveBlob(blob));
+
+                blobGO.GetComponent<BlobNotify>().OnBlobDefeated.AddListener(() => RemoveBlob(blob));
                 // add blob to blobs
                 blobs.Add(blob);
                 blobGO.name = "Blob " + blobs.Count;
@@ -187,7 +191,7 @@ namespace Enemy
                 // kill all blobs
                 foreach (var blob in blobs)
                 {
-                    blob.DieImediately();
+                    blob.TakeDamage(100000000);
                 }
 
                 Debug.Log("Boss defeated");
@@ -216,7 +220,7 @@ namespace Enemy
             HP = hp;
         }
 
-        public void RemoveBlob(Blob blob)
+        public void RemoveBlob(IBlob blob)
         {
             if (!isAlive)
             {
