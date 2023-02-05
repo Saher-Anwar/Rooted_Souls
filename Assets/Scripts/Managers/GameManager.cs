@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         {
             levelCameras.Add(levelManager.getLevelCamera());
         }
-        LoadNextLevel();
+        //LoadNextLevel();
     }
 
     public void LoadNextLevel()
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         //levelCameras[currLevel].Priority = (currPriority + 1);
 
         currLevel++;
+        levelCameras[currLevel].Priority = 10 + currLevel;
         OnLoadingNextLevel?.Invoke();
     }
 

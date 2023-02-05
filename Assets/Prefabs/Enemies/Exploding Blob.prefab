@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 201398208326504293}
   - component: {fileID: 201398208326504289}
   - component: {fileID: 422746311555886038}
+  - component: {fileID: -6569926699971424041}
   m_Layer: 7
   m_Name: Exploding Blob
   m_TagString: Untagged
@@ -208,6 +209,7 @@ MonoBehaviour:
     m_Bits: 256
   playerDetectionRadius: 0.8
   offset: {x: 0.05, y: -0.09, z: 0}
+  currHealth: 0
   explosionVFX: {fileID: 2388279911302348930, guid: 906e9f0bc624b404ab7da1cfa18f69dc, type: 3}
   knockbackForce: 10
   deathWaitTime: 1
@@ -226,3 +228,23 @@ MonoBehaviour:
   OnBlobDefeated:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &-6569926699971424041
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201398208326504295}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cebd4c6263485f469c2d5b4bd250bc6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

@@ -88,6 +88,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         Destroy(npc);
+        GetComponentInParent<LevelManager>()?.TriggerBoss();
         loadNextUI();
     }
 
