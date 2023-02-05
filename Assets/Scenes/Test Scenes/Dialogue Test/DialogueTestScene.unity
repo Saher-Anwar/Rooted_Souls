@@ -645,9 +645,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ac4551d35752949a2b281533e6d9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgrounds:
+  - {fileID: 21300000, guid: 8dc51fabfa21ee140aeece56d2831b2c, type: 3}
+  - {fileID: 21300000, guid: 11775e9ccb2179a4397f36d920cfcc49, type: 3}
+  - {fileID: 21300000, guid: 5fa72d173e13c134281fb9c0c82a20e9, type: 3}
+  - {fileID: 21300000, guid: 957ed87fc027c334a8f6d3d6fc010e2b, type: 3}
+  - {fileID: 21300000, guid: 8dc51fabfa21ee140aeece56d2831b2c, type: 3}
+  - {fileID: 21300000, guid: fa39d3405e9ca114b8e15c8b036546df, type: 3}
+  - {fileID: 21300000, guid: 20aa208aa50021a49836d093e5aa320f, type: 3}
+  - {fileID: 21300000, guid: fc96b764e06544f4884e8843e2111a64, type: 3}
+  - {fileID: 21300000, guid: 71b470c82cb1e754b8376666669d2e8a, type: 3}
+  - {fileID: 21300000, guid: 71b470c82cb1e754b8376666669d2e8a, type: 3}
+  - {fileID: 21300000, guid: 71b470c82cb1e754b8376666669d2e8a, type: 3}
   dialoguePanel: {fileID: 1373518391}
   dialogueText: {fileID: 690363481}
   typeWriterSpeed: 30
+  BG: {fileID: 2133791048}
+  initialInkJSON: {fileID: 4900000, guid: ddace308b4c43554eb59c22b09ae6072, type: 3}
   dialogueIsPlaying: 0
   lockTyping: 0
 --- !u!1 &1294467543
@@ -1583,7 +1597,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fa72d173e13c134281fb9c0c82a20e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dc51fabfa21ee140aeece56d2831b2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

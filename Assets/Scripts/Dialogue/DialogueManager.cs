@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float typeWriterSpeed = 30f;
     private GameObject npc;
     [SerializeField] private Image BG;
+    [SerializeField] private TextAsset initialInkJSON;
 
 
     [Header("Choices UI")]
@@ -45,8 +46,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-
-
+        readDialogue(initialInkJSON);
     }
 
     private void Update()
@@ -67,7 +67,12 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON, GameObject npc)
     {
         this.npc = npc;
+        readDialogue(inkJSON);
 
+    }
+
+    private void readDialogue(TextAsset inkJSON)
+    {
         currentStory = new Story(inkJSON.text);
 
         dialogueIsPlaying = true;
