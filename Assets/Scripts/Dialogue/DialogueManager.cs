@@ -5,6 +5,8 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
     public bool dialogueIsPlaying;
     public int lockTyping;
+    [SerializeField, OptionalField]
+    LevelManager currLevel;
 
     private void Awake()
     {
@@ -88,7 +92,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         Destroy(npc);
-        GetComponentInParent<LevelManager>()?.TriggerBoss();
+
+        currLevel?.TriggerBoss();
         loadNextUI();
     }
 
