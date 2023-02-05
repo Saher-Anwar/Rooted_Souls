@@ -38,7 +38,7 @@ public class EnemyBlobMovement : MonoBehaviour
     {
         // Need blob to jump around Vector.up * jumpForce * Time.deltaTime
         if (isGrounded) {
-            blobAnimation.SetTrigger(BlobAnimation.Animation_States.Squat);
+            blobAnimation?.SetTrigger(BlobAnimation.Animation_States.Squat);
             rigidbody.gravityScale = 1f;
             elapsedTime += Time.deltaTime;
             
@@ -57,7 +57,7 @@ public class EnemyBlobMovement : MonoBehaviour
 
         if (isFalling)
         {
-            blobAnimation.SetTrigger(BlobAnimation.Animation_States.EndJump);
+            blobAnimation?.SetTrigger(BlobAnimation.Animation_States.EndJump);
             isFalling = false;
         }
     }
@@ -68,7 +68,7 @@ public class EnemyBlobMovement : MonoBehaviour
     {
         Vector2 result = (Vector2.up * jumpForce) + (MoveTowardsPlayer() * moveForce);
         rigidbody.AddForce(result, ForceMode2D.Impulse);
-        blobAnimation.SetTrigger(BlobAnimation.Animation_States.StartJump);
+        blobAnimation?.SetTrigger(BlobAnimation.Animation_States.StartJump);
 
         MoveTowardsPlayer();
 

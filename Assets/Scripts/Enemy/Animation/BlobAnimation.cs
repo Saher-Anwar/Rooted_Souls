@@ -22,6 +22,7 @@ public class BlobAnimation
     public void SetTrigger(Animation_States state)
     {
         if (state == currentState) return;
+        if (animator == null) return;
         animator.SetTrigger(state.ToString());
         currentState = state;
     }
