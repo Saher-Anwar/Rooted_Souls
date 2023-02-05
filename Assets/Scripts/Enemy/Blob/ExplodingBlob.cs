@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ExplodingBlob : EnemyAI, IBlob
 {
+    [Header("Explosion information")]
+    [SerializeField]
+    GameObject explosionVFX;
     [SerializeField]
     float knockbackForce = 2f;
     [SerializeField]
@@ -31,28 +34,42 @@ public class ExplodingBlob : EnemyAI, IBlob
 
     public void Attack()
     {
-        TriggerExplosion();
-        // Do damage to player
-        Death(deathWaitTime);
+        StartCoroutine(StartAttack());
+
+    }
+
+    IEnumerator StartAttack()
+    {
+        DisableMovement();
+        yield return StartCoroutine(TriggerExplosion());
+        Death();
     }
 
     IEnumerator TriggerExplosion()
-    {
-        // stop enemy movement
-        GetComponent<EnemyBlobMovement>().enabled = false;
-        yield return new WaitForSeconds(deathWaitTime);
-        
-        if (CheckForPlayer)
+    {        
+        if (explosionVFX == null)
         {
-            ApplyExplosionKnockback();
+            Debug.LogError("No explosion VFX allocated");
+            yield return null;
         }
+
+        Instantiate(explosionVFX, transform.position, Quaternion.identity, transform);
+        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration * 0.2f);
+
+        DisableUnnecessaryComponents();
+        ApplyExplosionKnockback();
+
+        yield return new WaitForSeconds(explosionVFX.GetComponent<ParticleSystem>().main.duration * 0.5f);
     }
 
     void ApplyExplosionKnockback()
     {
+        if (!CheckForPlayer) return;
         Vector2 knockbackDir = (playerPos.position - transform.position).normalized;
         Rigidbody2D rigidbody2D = playerPos.gameObject.GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+
+        // Do damage
     }
 
     public void Death(float deathWaitTime = 0)
@@ -74,5 +91,15 @@ public class ExplodingBlob : EnemyAI, IBlob
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position + offset, playerDetectionRadius);
+    }
+
+    void DisableUnnecessaryComponents()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void DisableMovement()
+    {
+        GetComponent<EnemyBlobMovement>().enabled = false;
     }
 }
