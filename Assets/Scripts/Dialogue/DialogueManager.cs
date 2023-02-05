@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown("i"))
+        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown("q"))
         {
             ContinueStory();
         }
