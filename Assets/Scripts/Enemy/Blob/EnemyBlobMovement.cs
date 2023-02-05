@@ -23,6 +23,7 @@ public class EnemyBlobMovement : MonoBehaviour
     float elapsedTime = 0;
     Transform player;
     BlobAnimation blobAnimation;
+    bool isFalling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class EnemyBlobMovement : MonoBehaviour
     {
         // Need blob to jump around Vector.up * jumpForce * Time.deltaTime
         if (isGrounded) {
-            blobAnimation.SetTrigger(BlobAnimation.Animation_States.EndJump);
+            blobAnimation.SetTrigger(BlobAnimation.Animation_States.Squat);
             rigidbody.gravityScale = 1f;
             elapsedTime += Time.deltaTime;
             
@@ -51,6 +52,13 @@ public class EnemyBlobMovement : MonoBehaviour
         if(rigidbody.velocity.y < 0)
         {
             rigidbody.gravityScale = fallingGravityScale;
+            isFalling = true;
+        }
+
+        if (isFalling)
+        {
+            blobAnimation.SetTrigger(BlobAnimation.Animation_States.EndJump);
+            isFalling = false;
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlobAnimation
 {
     Animator animator;
+    Animation_States currentState;
 
     public BlobAnimation(Animator animator)
     {
@@ -15,17 +16,13 @@ public class BlobAnimation
     {
         StartJump,
         EndJump,
-        VelocityY,
+        Squat,
     }
 
     public void SetTrigger(Animation_States state)
     {
+        if (state == currentState) return;
         animator.SetTrigger(state.ToString());
+        currentState = state;
     }
-
-    public void SetFloat(Animation_States state, float value)
-    {
-        animator.SetFloat(state.ToString(), value);
-    }
-
 }
