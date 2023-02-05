@@ -625,6 +625,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1540674882426876997, guid: 9a88dd9241c7fb644a7d4473c71045b4, type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 3da824f0ea58079409ffeebb14adcbef, type: 3}
     - target: {fileID: 1540674882603107848, guid: 9a88dd9241c7fb644a7d4473c71045b4, type: 3}
       propertyPath: m_Name
       value: NPC
