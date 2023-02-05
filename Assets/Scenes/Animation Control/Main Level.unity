@@ -19978,31 +19978,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &201105838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8459812519424534884, guid: a3415585f50f55244af10fc318174a67, type: 3}
-  m_PrefabInstance: {fileID: 281105525}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &201105844
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201105838}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ac15d821986d6647ba32b340d227fac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &237247892
 GameObject:
   m_ObjectHideFlags: 0
@@ -20167,22 +20142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8459812519424534880, guid: a3415585f50f55244af10fc318174a67, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459812519424534880, guid: a3415585f50f55244af10fc318174a67, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459812519424534880, guid: a3415585f50f55244af10fc318174a67, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 8459812519424534881, guid: a3415585f50f55244af10fc318174a67, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 201105844}
     - target: {fileID: 8459812519424534884, guid: a3415585f50f55244af10fc318174a67, type: 3}
       propertyPath: m_Name
       value: Player
