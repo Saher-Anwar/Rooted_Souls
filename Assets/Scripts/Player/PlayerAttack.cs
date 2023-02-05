@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     float knockbackForce = 4f;
 
+    Animator animator;
+
     [Header("Enemy Area Detection")]
     [SerializeField]
     Vector3 offset;
@@ -27,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,10 +38,12 @@ public class PlayerAttack : MonoBehaviour
         elapsedTime += Time.deltaTime;
         if (Input.GetMouseButtonDown(0))
         {
-            if(elapsedTime > attackCooldown)
+            if (elapsedTime > attackCooldown)
             {
                 elapsedTime = 0;
                 DoAttack();
+                // play attack animation
+                animator.SetTrigger("IsAttacking");
             }
         }
     }
