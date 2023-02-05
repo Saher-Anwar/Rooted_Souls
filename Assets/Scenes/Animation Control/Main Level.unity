@@ -20359,6 +20359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477443261}
   - component: {fileID: 477443260}
+  - component: {fileID: 477443262}
   m_Layer: 0
   m_Name: HopeNPC
   m_TagString: Untagged
@@ -20436,6 +20437,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &477443262
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477443259}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f4b9142feff8b345a48a8c4146a4287, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &503248338
 GameObject:
   m_ObjectHideFlags: 0
@@ -20446,6 +20467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503248340}
   - component: {fileID: 503248339}
+  - component: {fileID: 503248341}
   m_Layer: 0
   m_Name: BraveNPC
   m_TagString: Untagged
@@ -20523,6 +20545,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &503248341
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503248338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f484e506b77e23d41a53dd18ccce18d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &513418541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2862708498505739734, guid: 4741b5bc24a963d429f5f32ba1f4392f, type: 3}
@@ -20656,6 +20698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 590183178}
   - component: {fileID: 590183177}
+  - component: {fileID: 590183179}
   m_Layer: 0
   m_Name: HelplessNPC
   m_TagString: Untagged
@@ -20733,6 +20776,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &590183179
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590183176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2558f748ae9f14441a0d40aff93acfd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &640388054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37247,6 +37310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469279683}
   - component: {fileID: 1469279682}
+  - component: {fileID: 1469279684}
   m_Layer: 0
   m_Name: JoyNPC
   m_TagString: Untagged
@@ -37324,6 +37388,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1469279684
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469279681}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a7836fcbb23f74a8b6676df9e15b61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1490041253
 GameObject:
   m_ObjectHideFlags: 0
@@ -37336,6 +37420,7 @@ GameObject:
   - component: {fileID: 1490041254}
   - component: {fileID: 1490041256}
   - component: {fileID: 1490041257}
+  - component: {fileID: 1490041258}
   m_Layer: 0
   m_Name: AngerNPC
   m_TagString: Untagged
@@ -37457,6 +37542,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.51, y: 0.7}
   m_EdgeRadius: 0
+--- !u!95 &1490041258
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490041253}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0417a8eef0b8fe646ab68aa2cc844a58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1586886231
 GameObject:
   m_ObjectHideFlags: 0
