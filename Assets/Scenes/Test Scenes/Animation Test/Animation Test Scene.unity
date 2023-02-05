@@ -2392,7 +2392,7 @@ GameObject:
   - component: {fileID: 1241819559}
   - component: {fileID: 1241819558}
   m_Layer: 0
-  m_Name: joy-stand
+  m_Name: Joy_NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
