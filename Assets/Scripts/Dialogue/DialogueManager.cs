@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     [SerializeField] private float typeWriterSpeed = 30f;
+    private GameObject npc;
 
 
     [Header("Choices UI")]
@@ -59,8 +60,10 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, GameObject npc)
     {
+        this.npc = npc;
+
         currentStory = new Story(inkJSON.text);
 
         dialogueIsPlaying = true;
@@ -75,6 +78,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        Destroy(npc);
     }
 
 
