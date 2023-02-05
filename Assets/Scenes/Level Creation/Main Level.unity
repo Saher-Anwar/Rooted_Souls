@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 121695694}
   - component: {fileID: 121695696}
   - component: {fileID: 121695695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23628,7 +23628,7 @@ GameObject:
   - component: {fileID: 435114969}
   - component: {fileID: 435114971}
   - component: {fileID: 435114970}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Joyclose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23970,7 +23970,7 @@ GameObject:
   - component: {fileID: 580287850}
   - component: {fileID: 580287852}
   - component: {fileID: 580287851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bravestep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24244,7 +24244,7 @@ GameObject:
   - component: {fileID: 597877553}
   - component: {fileID: 597877555}
   - component: {fileID: 597877554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hopestep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24476,7 +24476,7 @@ GameObject:
   - component: {fileID: 687262128}
   - component: {fileID: 687262130}
   - component: {fileID: 687262129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bravewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24700,7 +24700,7 @@ GameObject:
   - component: {fileID: 844021529}
   - component: {fileID: 844021531}
   - component: {fileID: 844021530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hopewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24924,7 +24924,7 @@ GameObject:
   - component: {fileID: 862577373}
   - component: {fileID: 862577375}
   - component: {fileID: 862577374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Joy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24939,15 +24939,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862577372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.298576, y: -5.5909743, z: -0.20373379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 435114969}
   - {fileID: 1014420372}
   - {fileID: 2005766456}
-  m_Father: {fileID: 1794752461}
-  m_RootOrder: 5
+  m_Father: {fileID: 1762991346}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &862577374
 TilemapRenderer:
@@ -25047,7 +25047,7 @@ GameObject:
   - component: {fileID: 1014420372}
   - component: {fileID: 1014420374}
   - component: {fileID: 1014420373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Joystep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25471,7 +25471,7 @@ GameObject:
   - component: {fileID: 1023934095}
   - component: {fileID: 1023934097}
   - component: {fileID: 1023934096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Brave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25486,15 +25486,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023934094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.298576, y: -5.5909743, z: -0.20373379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1090820977}
   - {fileID: 580287850}
   - {fileID: 687262128}
-  m_Father: {fileID: 1794752461}
-  m_RootOrder: 4
+  m_Father: {fileID: 1762991346}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1023934096
 TilemapRenderer:
@@ -25594,7 +25594,7 @@ GameObject:
   - component: {fileID: 1090820977}
   - component: {fileID: 1090820979}
   - component: {fileID: 1090820978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hopeclose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25787,90 +25787,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1414793937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1414793938}
-  - component: {fileID: 1414793939}
-  m_Layer: 0
-  m_Name: main_character-right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1414793938
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414793937}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.37, y: -25.71, z: 9.797774}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1684207897}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1414793939
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414793937}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1559329199
-  m_SortingLayer: 5
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: f2ba4ed401cd96348b57e0b8a4be89e6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.68, y: 0.92}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &1426397908
 GameObject:
   m_ObjectHideFlags: 0
@@ -37206,7 +37122,7 @@ GameObject:
   - component: {fileID: 1467252027}
   - component: {fileID: 1467252029}
   - component: {fileID: 1467252028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37221,14 +37137,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467252026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.298576, y: -5.5909743, z: -0.20373379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 844021529}
   - {fileID: 597877553}
-  m_Father: {fileID: 1794752461}
-  m_RootOrder: 3
+  m_Father: {fileID: 1762991346}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1467252028
 TilemapRenderer:
@@ -37317,7 +37233,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1684207896
+--- !u!1 &1762991345
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37325,29 +37241,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1684207897}
-  m_Layer: 0
-  m_Name: Playertest
+  - component: {fileID: 1762991346}
+  m_Layer: 6
+  m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1684207897
+--- !u!4 &1762991346
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684207896}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 10.785532, z: -9.797774}
+  m_GameObject: {fileID: 1762991345}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.298576, y: 5.5909743, z: 0.20373379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1414793938}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  - {fileID: 1467252027}
+  - {fileID: 1023934095}
+  - {fileID: 862577373}
+  m_Father: {fileID: 1794752461}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794752459
 GameObject:
@@ -37359,8 +37277,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1794752461}
   - component: {fileID: 1794752460}
-  m_Layer: 0
-  m_Name: Grid
+  m_Layer: 6
+  m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37393,9 +37311,7 @@ Transform:
   - {fileID: 121695694}
   - {fileID: 1426397909}
   - {fileID: 1809557799}
-  - {fileID: 1467252027}
-  - {fileID: 1023934095}
-  - {fileID: 862577373}
+  - {fileID: 1762991346}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37410,8 +37326,8 @@ GameObject:
   - component: {fileID: 1809557799}
   - component: {fileID: 1809557801}
   - component: {fileID: 1809557800}
-  m_Layer: 0
-  m_Name: Details
+  m_Layer: 6
+  m_Name: Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38059,37 +37975,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1826818094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1826818095}
-  m_Layer: 0
-  m_Name: Hopenpctest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1826818095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826818094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.4, y: -12.6, z: -0.33046383}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005766455
 GameObject:
   m_ObjectHideFlags: 0
@@ -38101,7 +37986,7 @@ GameObject:
   - component: {fileID: 2005766456}
   - component: {fileID: 2005766458}
   - component: {fileID: 2005766457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Joywall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
