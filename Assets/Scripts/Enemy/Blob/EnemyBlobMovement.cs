@@ -22,12 +22,15 @@ public class EnemyBlobMovement : MonoBehaviour
 
     float elapsedTime = 0;
     Transform player;
+    BlobAnimation blobAnimation;
+    bool isFalling = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
+        blobAnimation = new(GetComponent<Animator>());
     }
 
     // Update is called once per frame
@@ -35,8 +38,9 @@ public class EnemyBlobMovement : MonoBehaviour
     {
         // Need blob to jump around Vector.up * jumpForce * Time.deltaTime
         if (isGrounded) {
+            blobAnimation.SetTrigger(BlobAnimation.Animation_States.Squat);
             rigidbody.gravityScale = 1f;
-            elapsedTime += Time.fixedDeltaTime;
+            elapsedTime += Time.deltaTime;
             
             if(elapsedTime > jumpReloadTimeInSec)
             {
@@ -48,6 +52,13 @@ public class EnemyBlobMovement : MonoBehaviour
         if(rigidbody.velocity.y < 0)
         {
             rigidbody.gravityScale = fallingGravityScale;
+            isFalling = true;
+        }
+
+        if (isFalling)
+        {
+            blobAnimation.SetTrigger(BlobAnimation.Animation_States.EndJump);
+            isFalling = false;
         }
     }
 
@@ -57,7 +68,10 @@ public class EnemyBlobMovement : MonoBehaviour
     {
         Vector2 result = (Vector2.up * jumpForce) + (MoveTowardsPlayer() * moveForce);
         rigidbody.AddForce(result, ForceMode2D.Impulse);
+        blobAnimation.SetTrigger(BlobAnimation.Animation_States.StartJump);
+
         MoveTowardsPlayer();
+
     }
 
     private Vector2 MoveTowardsPlayer()

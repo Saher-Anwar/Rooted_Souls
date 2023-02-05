@@ -10,11 +10,11 @@ public class LevelManager : MonoBehaviour
     [Header("Game Manager")]
     [SerializeField]
     private GameManager gameManager;
-    
+
     [Header("Level Settings")]
     [SerializeField]
     private int levelNumber = -1;
-    
+
     [Header("Camera Triggers")]
     [SerializeField]
     private GameObject cameraTrigger;
@@ -24,8 +24,14 @@ public class LevelManager : MonoBehaviour
     private Transform bossSpawnPoint;
     [SerializeField]
     private GameObject bossPrefab;
-    
+
     private GameObject bossInstance;
+
+    [Header("Triggers Settings")]
+    [SerializeField]
+    private GameObject trigger;
+    [SerializeField]
+    private GameObject triggerEnablePoint;
 
     private bool LevelCompletenessCheck()
     {
@@ -35,31 +41,18 @@ public class LevelManager : MonoBehaviour
             Debug.LogError("Game manager is null");
             return false;
         }
-        
+
         // check level
         if (levelNumber < 0)
         {
             Debug.LogError("Level number is invalid");
             return false;
         }
-        
-        // check boss
-        if (bossPrefab == null)
-        {
-            Debug.LogError("Boss prefab is null");
-            return false;
 
-        }
-        if (bossSpawnPoint == null)
+        // check trigger
+        if (trigger == null)
         {
-            Debug.LogError("Boss spawn point is null");
-            return false;
-        }
-
-        // check camera trigger
-        if (cameraTrigger == null)
-        {
-            Debug.LogError("Camera trigger is null");
+            Debug.LogError("Trigger is null");
             return false;
         }
 
@@ -69,7 +62,7 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
+        
         if (!LevelCompletenessCheck())
         {
             // Quit editor
@@ -77,7 +70,7 @@ public class LevelManager : MonoBehaviour
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+                    Application.Quit();
 #endif
         }
     }
@@ -95,16 +88,16 @@ public class LevelManager : MonoBehaviour
     private void OnLoadingNextLevel()
     {
         Debug.Log("LevelManager knows Game Manager is loading next level!");
-        if (gameManager.GetCurrLevel() == levelNumber)
+        if (gameManager.GetCurrLevel() == levelNumber && bossPrefab != null)
         {
             InitBoss();
         }
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -114,10 +107,15 @@ public class LevelManager : MonoBehaviour
 
     public void InitBoss()
     {
+        if (bossPrefab == null || bossSpawnPoint == null)
+        {
+            Debug.Log("No boss to spawn");
+            return;
+        }
         bossInstance = Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation, transform);
         bossInstance.name = "Boss " + levelNumber;
     }
-    
+
     public void TriggerBoss()
     {
         if (bossInstance == null)
@@ -126,17 +124,39 @@ public class LevelManager : MonoBehaviour
             return;
         }
         Boss boss = bossInstance.GetComponent<Boss>();
-        
+
         boss.SetBossTriggered(true);
         boss.OnBossDefeated.AddListener(() =>
         {
-            cameraTrigger.SetActive(true);
+            cameraTrigger?.SetActive(true);
             Debug.Log("LevelManager knows Boss defeated! Enabling camera trigger!");
         });
     }
-    
+
     public CinemachineVirtualCamera getLevelCamera()
     {
         return GetComponentInChildren<CinemachineVirtualCamera>();
     }
+
+    public void DisableTrigger()
+    {
+        trigger.SetActive(false);
+    }
+
+    public void DisableTrigger(float delay)
+    {
+        StartCoroutine(DisableTriggerReal(delay));
+    }
+
+    private IEnumerator DisableTriggerReal(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DisableTrigger();
+    }
+    
+    public void EnableTrigger()
+    {
+        trigger.SetActive(true);
+    }
+    
 }
