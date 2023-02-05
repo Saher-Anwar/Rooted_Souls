@@ -4,16 +4,22 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance;
+    public Sprite[] backgrounds;
+    private int imageIndex = 0;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     [SerializeField] private float typeWriterSpeed = 30f;
+    private GameObject npc;
+    [SerializeField] private Image BG;
+    [SerializeField] private TextAsset initialInkJSON;
 
 
     [Header("Choices UI")]
@@ -40,8 +46,7 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-
-
+        readDialogue(initialInkJSON);
     }
 
     private void Update()
@@ -59,7 +64,14 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, GameObject npc)
+    {
+        this.npc = npc;
+        readDialogue(inkJSON);
+
+    }
+
+    private void readDialogue(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
 
@@ -75,6 +87,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        Destroy(npc);
+        loadNextUI();
     }
 
 
@@ -119,7 +133,6 @@ public class DialogueManager : MonoBehaviour
         while (charIndex < textToType.Length)
         {
 
-
             t += Time.deltaTime * typeWriterSpeed;
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
@@ -142,9 +155,6 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
-    
-
-
         int index = 0;
        
         StartCoroutine(SelectFirstChoice());
@@ -162,5 +172,12 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
+    }
+
+    public void loadNextUI()
+    {
+        if(imageIndex+1 < backgrounds.Length)
+        BG.sprite = backgrounds[imageIndex];
+        imageIndex++;
     }
 }

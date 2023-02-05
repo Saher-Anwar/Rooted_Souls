@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 201398208326504292}
   - component: {fileID: 201398208326504293}
   - component: {fileID: 201398208326504289}
+  - component: {fileID: 422746311555886038}
   m_Layer: 7
   m_Name: Exploding Blob
   m_TagString: Untagged
@@ -210,3 +211,18 @@ MonoBehaviour:
   explosionVFX: {fileID: 2388279911302348930, guid: 906e9f0bc624b404ab7da1cfa18f69dc, type: 3}
   knockbackForce: 10
   deathWaitTime: 1
+--- !u!114 &422746311555886038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201398208326504295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded28674a14f5be46a186540c51d9637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnBlobDefeated:
+    m_PersistentCalls:
+      m_Calls: []
