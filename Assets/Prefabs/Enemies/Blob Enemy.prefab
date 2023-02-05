@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5195325702015963999}
   - component: {fileID: 5195325702015963987}
   - component: {fileID: 5195325702015963986}
+  - component: {fileID: 2507681203037362144}
   m_Layer: 7
   m_Name: Blob Enemy
   m_TagString: Untagged
@@ -208,3 +209,18 @@ MonoBehaviour:
   playerDetectionRadius: 0.62
   offset: {x: 0, y: 0, z: 0}
   knockbackForce: 1.1
+--- !u!114 &2507681203037362144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195325702015963996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded28674a14f5be46a186540c51d9637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnBlobDefeated:
+    m_PersistentCalls:
+      m_Calls: []
