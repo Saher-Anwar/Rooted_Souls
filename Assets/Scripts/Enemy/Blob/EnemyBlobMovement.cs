@@ -39,7 +39,7 @@ public class EnemyBlobMovement : MonoBehaviour
         if (isGrounded) {
             blobAnimation.SetTrigger(BlobAnimation.Animation_States.EndJump);
             rigidbody.gravityScale = 1f;
-            elapsedTime += Time.fixedDeltaTime;
+            elapsedTime += Time.deltaTime;
             
             if(elapsedTime > jumpReloadTimeInSec)
             {
@@ -51,7 +51,6 @@ public class EnemyBlobMovement : MonoBehaviour
         if(rigidbody.velocity.y < 0)
         {
             rigidbody.gravityScale = fallingGravityScale;
-            blobAnimation.SetFloat(BlobAnimation.Animation_States.VelocityY, rigidbody.velocity.y);
         }
     }
 
