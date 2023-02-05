@@ -41,18 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: background
-    uniqueID: 3073271953
-    locked: 0
-  - name: background2
+  - name: Room Color
     uniqueID: 3589870467
     locked: 0
-  - name: room
-    uniqueID: 3833356323
+  - name: Background
+    uniqueID: 3073271953
     locked: 0
-  - name: details
+  - name: Triggers
     uniqueID: 2158054637
     locked: 0
-  - name: player
-    uniqueID: 1559329199
+  - name: Player
+    uniqueID: 3833356323
     locked: 0
