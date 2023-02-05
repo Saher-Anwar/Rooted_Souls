@@ -20173,12 +20173,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8459812519424534880, guid: a3415585f50f55244af10fc318174a67, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.68
+      value: 2.125
       objectReference: {fileID: 0}
     - target: {fileID: 8459812519424534880, guid: a3415585f50f55244af10fc318174a67, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.92
+      value: 2.875
       objectReference: {fileID: 0}
+    - target: {fileID: 8459812519424534881, guid: a3415585f50f55244af10fc318174a67, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 201105844}
     - target: {fileID: 8459812519424534884, guid: a3415585f50f55244af10fc318174a67, type: 3}
       propertyPath: m_Name
       value: Player

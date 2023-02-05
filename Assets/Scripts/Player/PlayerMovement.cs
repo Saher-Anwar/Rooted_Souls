@@ -18,18 +18,29 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rigidBody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator animator;
 
     // Update is called once per frame
     void Update()
     {
         // Fetching the horizontal input magnitude
         moveDirection = Input.GetAxis("Horizontal");
-        
+
+        // Setting the animator parameters
+        animator.SetFloat("Speed", Mathf.Abs(moveDirection));
+
         // Jump Component
         // Allow jump if grounded and add force equal to jumpForce
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
+            // Set the animator parameter to true
+            animator.SetBool("IsJumping", true);
+        }
+        else
+        {
+            // Set the animator parameter to false
+            animator.SetBool("IsJumping", false);
         }
         // If jump button is released and velocity is greater than 0, reduce velocity to add float effect
         if (Input.GetButtonUp("Jump") && rigidBody2D.velocity.y > 0f)
