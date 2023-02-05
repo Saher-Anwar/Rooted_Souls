@@ -10,7 +10,8 @@ public class SpikyBlob : EnemyAI, IBlob
     // Start is called before the first frame update
     void Start()
     {
-        FindPlayerPos();       
+        FindPlayerPos();
+        currHealth = maxHealth;
     }
 
     // Update is called once per frame

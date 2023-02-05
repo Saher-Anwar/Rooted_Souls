@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField, OptionalField]
     ParticleSystem deathEffect;
     [SerializeField]
-    float maxHealth;
+    protected float maxHealth;
     [SerializeField]
     LayerMask playerLayer;
 
@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     protected Vector3 offset;
 
+    [SerializeField]
     protected float currHealth;
     protected Transform playerPos;
 
