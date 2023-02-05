@@ -9,11 +9,12 @@ public class SpiritControl : MonoBehaviour
     public float x_offset;
     public float y_offset;
 
-
+    
     public GameObject player;
     public BoxCollider2D boxCollider;
     public SpriteRenderer spriteRenderer;
     public Sprite spiritSprite;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class SpiritControl : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // On trigger enter
@@ -34,6 +36,8 @@ public class SpiritControl : MonoBehaviour
             this.transform.parent = player.transform;
             // Remove box collider
             boxCollider.enabled = false;
+            // Disable animator
+            animator.enabled = false;
             reposition();
         }
     }
