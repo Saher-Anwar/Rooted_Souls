@@ -41,9 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Room Color
-    uniqueID: 3589870467
-    locked: 0
   - name: Background
     uniqueID: 3073271953
     locked: 0
@@ -52,4 +49,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3833356323
+    locked: 0
+  - name: Walls
+    uniqueID: 3664706601
     locked: 0
