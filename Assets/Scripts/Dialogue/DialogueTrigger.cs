@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Awake()
     {
-        playerInRange = true; //OG: Was originally set to false.
+        playerInRange = false;
         visualCue.SetActive(true);
 
     }
@@ -25,13 +25,9 @@ public class DialogueTrigger : MonoBehaviour
         {
             visualCue.SetActive(true);
 
-            //Debug.Log(inkJSON.text);
-            
-            //
             if (Input.GetKeyDown("i"))
             {
-                //Debug.Log(inkJSON.text);
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, transform.parent.gameObject);
             }
             
         } else
@@ -41,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    /*
+    
     private void OnTriggerEnter2D(Collider2D collider)
     {
         //Debug.Log("Trigger");
@@ -60,16 +56,12 @@ public class DialogueTrigger : MonoBehaviour
 
         //Debug.Log("No Trigger");
        
-        
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
         }
-        
-
-
-        //playerInRange = false;
+        playerInRange = false;
     }
-    */
+    
 
 }
